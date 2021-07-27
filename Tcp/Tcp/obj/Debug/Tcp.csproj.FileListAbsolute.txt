@@ -1,0 +1,9 @@
+C:\Users\User\source\repos\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\User\source\repos\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\User\source\repos\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.exe
