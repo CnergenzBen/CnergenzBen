@@ -28,10 +28,12 @@ namespace Tcp
 
         private void button1_Click(object sender , EventArgs e)
         {
+
            for(int i = 0; i < 10; i++)
             {
                  t1.Action = int.Parse(textBox2.Text);
-                 byte [ ] bytes = Encoding.ASCII.GetBytes(textBox1.Text.ToString());
+                byte [ ] bytes = TcpOption.StringToByteArray(textBox1.Text.ToString());
+                 //byte [ ] bytes = Encoding.ASCII.GetBytes(textBox1.Text.ToString());
                 Result = t1.TCPSend(bytes);
                 Console.WriteLine("Error = "+Result.ErrorMessage+"  send = " + Result.Result + " data Send = "+ Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive) );
                 Thread.Sleep(100);
@@ -48,7 +50,7 @@ namespace Tcp
 
         private void button3_Click(object sender , EventArgs e)
         {
-          t1.ConnectTcp("192.168.1.2" , "2");
+          t1.ConnectTcp("192.168.1.1" , "1");
            Console.WriteLine(t1.TCPResult.ErrorMessage +" == "+ t1.TCPResult.Result);
         }
 
@@ -101,12 +103,18 @@ namespace Tcp
             public bool Result;
             public Byte[] CRC = new byte[10];
         }
-
+        public static byte [ ] StringToByteArray(string hex)
+        {
+            return Enumerable.Range(0 , hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x , 2) , 16))
+                             .ToArray();
+        }
         public int Action;
         public byte [ ] buffer = new byte [2048];
         public byte [] bufferRecive;
 
-        private byte [ ] PULL = Encoding.ASCII.GetBytes("PULL");
+        private byte [ ] PULL = Encoding.ASCII.GetBytes("SLED");
         private byte [ ] SENR = Encoding.ASCII.GetBytes("SENR");
         private byte [] Crc;
         private byte [ ] buffer3;
