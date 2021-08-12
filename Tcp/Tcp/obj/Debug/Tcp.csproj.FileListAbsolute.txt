@@ -10,10 +10,10 @@ C:\Users\User\source\repos\Tcp\Tcp\obj\Debug\Tcp.exe
 C:\gibhub\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe.config
 C:\gibhub\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe
 C:\gibhub\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.pdb
-C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.exe
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache

@@ -38,6 +38,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.TEST = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -133,11 +134,22 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // TEST
+            // 
+            this.TEST.Location = new System.Drawing.Point(651, 235);
+            this.TEST.Name = "TEST";
+            this.TEST.Size = new System.Drawing.Size(125, 67);
+            this.TEST.TabIndex = 10;
+            this.TEST.Text = "button8";
+            this.TEST.UseVisualStyleBackColor = true;
+            this.TEST.Click += new System.EventHandler(this.TEST_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 672);
+            this.Controls.Add(this.TEST);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.textBox2);
@@ -168,6 +180,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button TEST;
     }
 }
 
