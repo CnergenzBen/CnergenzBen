@@ -17,3 +17,13 @@ C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.exe
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.pdb
 C:\gibhub\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.AssemblyReference.cache
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.pdb

@@ -29,16 +29,11 @@ namespace Tcp
         private void button1_Click(object sender , EventArgs e)
         {
 
-            for(int i = 0; i < 10; i++)
-            {
-                TcpOption.Action = int.Parse(textBox2.Text);
-                byte [ ] bytes = TcpOption.StringToByteArray(textBox1.Text.ToString());
-                //byte [ ] bytes = Encoding.ASCII.GetBytes(textBox1.Text.ToString());
-                Result = t1.TCPSend(bytes);
-                Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
-                Thread.Sleep(100);
-            }
-
+            t1.Action = int.Parse(textBox2.Text);
+            byte [ ] bytes = t1.StringToByteArray(textBox1.Text.ToString());
+            Result = t1.TCPSend(bytes);
+            Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
+            Thread.Sleep(100);
         }
 
         private void button2_Click(object sender , EventArgs e)
@@ -50,7 +45,7 @@ namespace Tcp
 
         private void button3_Click(object sender , EventArgs e)
         {
-            t1.ConnectTcp("192.168.1.1" , "1");
+            t1.ConnectTcp("127.0.0.1" , "23");
             Console.WriteLine(t1.TCPResult.ErrorMessage + " == " + t1.TCPResult.Result);
         }
 
@@ -80,7 +75,7 @@ namespace Tcp
 
         private void button7_Click(object sender , EventArgs e)
         {
-            TcpOption.Action = int.Parse(textBox2.Text);
+            t1.Action = int.Parse(textBox2.Text);
             byte [ ] bytes = Encoding.ASCII.GetBytes(textBox1.Text.ToString());
             Result = t1.TCPSendOriginal(bytes);
             Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive " + BitConverter.ToString(Result.ByteDataReceive));
@@ -90,38 +85,7 @@ namespace Tcp
         private void TEST_Click(object sender , EventArgs e)
         {
             t1.checLED(t1);
-            /*
-            byte [ ] data = new byte [200];
-            data [0] = 64;
-            TcpOption.Action = 1;
-
-            for(int i = 1; i < 200; i++)
-            {
-                data [i] = 0x00;
-            }
-            for(int i = 0; i < 6; i++)
-            {
-
-                data [0] /= 2;
-                Result = t1.TCPSend(data);
-                Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
-
-                Thread.Sleep(20);
-            }
-            data [0] = 1;
-
-            for(int i = 0; i < 256; i++)
-            {
-                RotateRight(data);
-                // byte [ ] bytes = TcpOption.StringToByteArray(data);
-                Result = t1.TCPSend(data);
-                Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
-
-                Thread.Sleep(20);
-            }*/
         }
-
-
 
         public static void RotateRight(byte [ ] bytes)
         {
@@ -203,7 +167,29 @@ namespace Tcp
             }
         }
 
+        private void button8_Click(object sender , EventArgs e)
+        {
+            t1.ByteLedQty100.InsertLocationLedBit(Convert.ToInt32(LedLocation.Text));
+        }
 
+        private void button4_Click_1(object sender , EventArgs e)
+        {
+            t1.ByteLedQty100.DataShow();
+        }
+
+        private void button5_Click_1(object sender , EventArgs e)
+        {
+            t1.ByteLedQty100.ByteDataSendArray100Clear();
+        }
+
+        private void button6_Click_1(object sender , EventArgs e)
+        {
+            t1.Action = int.Parse(textBox2.Text);
+            //byte [ ] bytes = t1.StringToByteArray(textBox1.Text.ToString());
+            Result = t1.TCPSend(t1.ByteLedQty100.ByteDataSendArray100);
+            Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
+            Thread.Sleep(100);
+        }
     }
 
 
@@ -214,7 +200,66 @@ namespace Tcp
 
     public class TcpOption
     {
+        #region class declare
+        public class data
+        {
+            public byte[] ByteDataSendArray100 = new byte[100];
+            public byte dataAdd;
+            private void InsertData(int LedLocation , int data)
+            {
 
+                switch(data)
+                {
+                    case 0:
+                        dataAdd = 0x01;
+                        break;
+                    case 1:
+                        dataAdd = 0x02;
+                        break;
+                    case 2:
+                        dataAdd = 0x04;
+                        break;
+                    case 3:
+                        dataAdd = 0x08;
+                        break;
+                    case 4:
+                        dataAdd = 0x10;
+                        break;
+                    case 5:
+                        dataAdd = 0x20;
+                        break;
+                    case 6:
+                        dataAdd = 0x40;
+                        break;
+                    case 7:
+                        dataAdd = 0x80;
+                        break;
+
+                }
+
+                ByteDataSendArray100 [LedLocation] = (byte)( ByteDataSendArray100 [LedLocation] | dataAdd );
+            }
+            public void InsertLocationLedBit(int LedLocation)
+            {
+                LedLocation -= 1;
+                this.InsertData(LedLocation / 8 , LedLocation % 8);
+            }
+            public void ByteDataSendArray100Clear( )
+            {
+                ByteDataSendArray100 = new byte [100];
+            }
+            public void DataShow( )
+            {
+                StringBuilder sb = new StringBuilder(ByteDataSendArray100.Length * 3);
+                for(int i = 0; i < this.ByteDataSendArray100.Length; i++)
+                {
+                    Console.WriteLine(ByteDataSendArray100 [i]);
+                    sb.Append(Convert.ToString(ByteDataSendArray100 [i] , 16).PadLeft(2 , '0').PadRight(3 , ' '));
+                }
+                Console.WriteLine(sb.ToString().ToUpper());
+            }
+
+        }
         public class AllResult
         {
             public String DataReceive;
@@ -225,18 +270,29 @@ namespace Tcp
             public bool Result;
             public Byte[] CRC = new byte[10];
         }
+        #endregion
 
-        public static byte [ ] StringToByteArray(string hex)
-        {
-            return Enumerable.Range(0 , hex.Length)
-                             .Where(x => x % 2 == 0)
-                             .Select(x => Convert.ToByte(hex.Substring(x , 2) , 16))
-                             .ToArray();
-        }
-        public static int Action;
+        #region parameter
+
+        /// <summary>
+        /// <param name="Action"> choose what action for PCB board</param>
+        /// </summary>
+        public int Action;
         public byte [ ] buffer = new byte [2048];
-        public byte [] bufferRecive;
+        private byte [] Crc;
+        private byte [ ] buffer3;
+        private Socket socketSend;
+        public AllResult TCPResult = new AllResult();
+        public data ByteLedQty100 = new data();
+        /// <summary>
+        /// <param name="ListDataBytes"> before use need add how many byte u need 1st</para>
+        /// <param name="ListDataBytes.insertdata">this func is </param>
+        /// </summary>
+        //public static List<data> ListDataBytes = new List<data>();
 
+        #endregion
+
+        #region Action parameter
         private byte [ ] SLE1 = Encoding.ASCII.GetBytes("SLE1");
         private byte [ ] SLE0 = Encoding.ASCII.GetBytes("SLE0");
         private byte [ ] SENR = Encoding.ASCII.GetBytes("SENR");
@@ -244,19 +300,24 @@ namespace Tcp
         private byte [ ] BLN0 = Encoding.ASCII.GetBytes("BLN0");
         private byte [ ] BUZ0 = Encoding.ASCII.GetBytes("BUZ0");
         private byte [ ] BUZ1 = Encoding.ASCII.GetBytes("BUZ1");
-        private byte [] Crc;
-        private byte [ ] buffer3;
-        private Socket socketSend;
+        #endregion
 
-        public AllResult TCPResult = new AllResult();
-
-        public void checLED(TcpOption t2 )
+        #region func
+        public byte [ ] StringToByteArray(string hex)
         {
-           // TcpOption t2 = new TcpOption();
+            return Enumerable.Range(0 , hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x , 2) , 16))
+                             .ToArray();
+        }
+
+        public void checLED(TcpOption t2)
+        {
+            // TcpOption t2 = new TcpOption();
             Tcp.TcpOption.AllResult Result;
             byte [ ] data = new byte [200];
             data [0] = 64;
-            TcpOption.Action = 1;
+            this.Action = 1;
 
             for(int i = 1; i < 200; i++)
             {
@@ -264,7 +325,7 @@ namespace Tcp
             }
             for(int i = 0; i < 6; i++)
             {
-                data [0] /= 2 ;
+                data [0] /= 2;
                 Result = t2.TCPSend(data);
                 Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
 
@@ -283,6 +344,11 @@ namespace Tcp
             }
         }
 
+        /// <summary>
+        /// this function is checking tcp connnection status
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         private bool SocketConnected(Socket s)
         {
             bool part1 = s.Poll(1000 , SelectMode.SelectRead);
@@ -351,6 +417,10 @@ namespace Tcp
             }
         }
 
+        /// <summary>
+        /// process Action instrution string
+        /// </summary>
+        /// <param name="dataSend">data for send to board</param>
         private void DataProcess(byte [ ] dataSend)
         {
             if(Action == 0)
@@ -414,6 +484,11 @@ namespace Tcp
             }
         }
 
+        /// <summary>
+        /// this func is send data whit Action select and already add checksum bytes[]
+        /// </summary>
+        /// <param name="dataSend"></param>
+        /// <returns></returns>
         public AllResult TCPSend(byte [ ] dataSend)
         {
             buffer = new byte [dataSend.Length + 4];
@@ -463,7 +538,11 @@ namespace Tcp
                 // MessageBox.Show("发送消息出错:" + ex.Message);
             }
         }
-
+        /// <summary>
+        /// this func is just send what data com from, mean u need to add the action and checksum by your self
+        /// </summary>
+        /// <param name="dataSend"></param>
+        /// <returns></returns>
         public AllResult TCPSendOriginal(byte [ ] dataSend)
         {
 
@@ -540,7 +619,11 @@ namespace Tcp
                 return TCPResult;
             }
         }
-
+        /// <summary>
+        /// generate checksum by byte data, must include the action byte ,is not will error at board
+        /// </summary>
+        /// <param name="byteData"></param>
+        /// <returns></returns>
         public byte [ ] ToModbus(byte [ ] byteData)
         {
             byte [ ] CRC = new byte [2];
@@ -569,6 +652,7 @@ namespace Tcp
 
         }
 
+        #region rotate funtion
         private static void RotateRight(byte [ ] bytes)
         {
             bool carryFlag = ShiftRight(bytes);
@@ -648,6 +732,8 @@ namespace Tcp
                 bytes [bytes.Length - 1] = (byte)( bytes [bytes.Length - 1] | 0x01 );
             }
         }
+        #endregion
+        #endregion
 
     }
 }
