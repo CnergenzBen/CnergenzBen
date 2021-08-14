@@ -32,7 +32,7 @@ namespace Tcp
             t1.Action = int.Parse(textBox2.Text);
             byte [ ] bytes = t1.StringToByteArray(textBox1.Text.ToString());
             Result = t1.TCPSend(bytes);
-            Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
+            Console.WriteLine("Error = " + Result.ErrorMessage + "  //send = " + Result.SendErrorMessage + " //data Send = " + Result.DataSend +"  //Data Recive Error Message = "+ Result.ReviceErrorMessage + " //Data Recive Result = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
             Thread.Sleep(100);
         }
 
@@ -266,9 +266,11 @@ namespace Tcp
             public byte[] ByteDataReceive = new byte[2048];
             public String DataSend;
             public byte[] ByteDataSend = new byte[2048];
-            public string ErrorMessage;
-            public bool Result;
-            public Byte[] CRC = new byte[10];
+            public string ErrorMessage= "null" ;
+            public string SendErrorMessage = "success send";
+            public string ReviceErrorMessage = "success recive";
+            public bool Result = true;//true = success false = failed
+            public Byte[] CRC = new byte[10];//checksum
         }
         #endregion
 
@@ -392,15 +394,12 @@ namespace Tcp
 
                 var result = Tcpclient1.BeginConnect(IP , Convert.ToInt32(Port.Trim()) , null , null);
 
-                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(2));
+                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
                 if(!success)
                 {
+                    TCPResult.ErrorMessage = "connection failed";
                     throw new Exception("Failed to connect.");
                 }
-
-                // we have connected
-
-
 
                 socketSend = new Socket(AddressFamily.InterNetwork , SocketType.Stream , ProtocolType.Tcp);
                 IPAddress ip = IPAddress.Parse(IP.Trim());
@@ -421,7 +420,7 @@ namespace Tcp
         /// process Action instrution string
         /// </summary>
         /// <param name="dataSend">data for send to board</param>
-        private void DataProcess(byte [ ] dataSend)
+        private void AddActionAndCheckSum(byte [ ] dataSend)
         {
             if(Action == 0)
             {
@@ -491,12 +490,18 @@ namespace Tcp
         /// <returns></returns>
         public AllResult TCPSend(byte [ ] dataSend)
         {
+            TCPResult = new AllResult();
             buffer = new byte [dataSend.Length + 4];
             buffer3 = new byte [dataSend.Length + 6];
             Crc = new byte [2];
-
-
-            DataProcess(dataSend);
+            AddActionAndCheckSum(dataSend);
+            TCPResult.Result = true;
+            if(socketSend == null || !SocketConnected(socketSend))
+            {
+                TCPResult.ErrorMessage = "connection failed please reconnect";
+                TCPResult.Result = false;
+                return TCPResult;
+            }
 
             try
             {
@@ -504,10 +509,24 @@ namespace Tcp
                 {
                     TCPResult.ByteDataSend = buffer3;
                     TCPResult.DataSend = Encoding.ASCII.GetString(buffer3 , 0 , buffer3.Length);
-                    int receive = socketSend.Send(buffer3);
+                    var r = Task.Run(()=> socketSend.Send(buffer3));
+                    if(r.Wait(5000))
+                    {
+                        TCPResult.DataReceive = Encoding.ASCII.GetString(TCPResult.ByteDataReceive , 0 , r.Result);
+                        // task completed within timeout
+                    }
+                    else
+                    {
+                        
+                        TCPResult.Result = false;
+                        TCPResult.SendErrorMessage = "Failed send Because wait over 2 sec Please check connection";
+                        TCPResult.ErrorMessage = "time over then 2 sec send failed please check connettion";
+                        // timeout logic
+                    }
+                    //int receive = socketSend.Send(buffer3);
 
                 }
-                catch
+                catch(Exception ex)
                 {
                     TCPResult.Result = false;
                     TCPResult.ErrorMessage = "Send Step Failed";
@@ -518,8 +537,20 @@ namespace Tcp
                 {
                     TCPResult.ByteDataReceive = new byte [1024];
                     TCPResult.DataReceive = "";
-                    int r = socketSend.Receive(TCPResult.ByteDataReceive);
-                    TCPResult.DataReceive = Encoding.ASCII.GetString(TCPResult.ByteDataReceive , 0 , r);
+                    var r =  Task.Run(( ) =>  socketSend.Receive(TCPResult.ByteDataReceive));
+                    if(r.Wait(5000))
+                    {
+                        TCPResult.DataReceive = Encoding.ASCII.GetString(TCPResult.ByteDataReceive , 0 , r.Result);
+                        // task completed within timeout
+                    }
+                    else
+                    {
+                        TCPResult.ReviceErrorMessage = "time over 2 sec recive failed Please check connection";
+                        TCPResult.ErrorMessage = "time over 2 sec Recive failed";
+                        TCPResult.Result = false;
+                        return TCPResult;
+                        // timeout logic
+                    }
                 }
                 catch
                 {
@@ -527,13 +558,12 @@ namespace Tcp
                     TCPResult.ErrorMessage = "Receive Step Failed";
                     return TCPResult;
                 }
-                TCPResult.Result = true;
                 TCPResult.ErrorMessage = "Receive Success";
                 return TCPResult;
-
             }
-            catch(Exception ex)
+            catch
             {
+                TCPResult.Result = false;
                 return TCPResult;
                 // MessageBox.Show("发送消息出错:" + ex.Message);
             }
@@ -590,6 +620,7 @@ namespace Tcp
 
         public AllResult TcpClose( )
         {
+            socketSend = null;
             try
             {
                 if(socketSend != null)
