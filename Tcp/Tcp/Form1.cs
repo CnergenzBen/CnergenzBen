@@ -296,34 +296,6 @@ namespace Tcp
         #endregion
 
         #region Action parameter
-       /* private byte [ ] SLE1 = Encoding.ASCII.GetBytes("SLE1");
-        private byte [ ] SLE0 = Encoding.ASCII.GetBytes("SLE0");
-        private byte [ ] SENR = Encoding.ASCII.GetBytes("SENR");
-        private byte [ ] BLN1 = Encoding.ASCII.GetBytes("BLN1");
-        private byte [ ] BLN0 = Encoding.ASCII.GetBytes("BLN0");
-        private byte [ ] BUZ0 = Encoding.ASCII.GetBytes("BUZ0");
-        private byte [ ] BUZ1 = Encoding.ASCII.GetBytes("BUZ1");
-        private byte [ ] BYP0 = Encoding.ASCII.GetBytes("BYP0");
-        private byte [ ] BYP1 = Encoding.ASCII.GetBytes("BYP1");
-
-
-        private byte [ ] T000 = Encoding.ASCII.GetBytes("T000");
-        private byte [ ] T001 = Encoding.ASCII.GetBytes("T001");
-        private byte [ ] T010 = Encoding.ASCII.GetBytes("T010");
-        private byte [ ] T011 = Encoding.ASCII.GetBytes("T011");
-        private byte [ ] T100 = Encoding.ASCII.GetBytes("T100");
-        private byte [ ] T101 = Encoding.ASCII.GetBytes("T101");
-        private byte [ ] T110 = Encoding.ASCII.GetBytes("T110");
-        private byte [ ] T111 = Encoding.ASCII.GetBytes("T111");
-
-        private byte [ ] B000 = Encoding.ASCII.GetBytes("B000");
-        private byte [ ] B001 = Encoding.ASCII.GetBytes("B001");
-        private byte [ ] B010 = Encoding.ASCII.GetBytes("B010");
-        private byte [ ] B011 = Encoding.ASCII.GetBytes("B011");
-        private byte [ ] B100 = Encoding.ASCII.GetBytes("B100");
-        private byte [ ] B101 = Encoding.ASCII.GetBytes("B101");
-        private byte [ ] B110 = Encoding.ASCII.GetBytes("B110");
-        private byte [ ] B111 = Encoding.ASCII.GetBytes("B111");*/
 
         private  string [] ActionStr = new string[]{  "SLE1",
                                                       "SLE0",
@@ -722,7 +694,6 @@ namespace Tcp
 
             return rightMostCarryFlag;
         }
-
 
         private static bool ShiftLeft(byte [ ] bytes)
         {
