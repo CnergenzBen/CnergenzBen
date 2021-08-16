@@ -248,7 +248,7 @@ namespace Tcp
             {
                 ByteDataSendArray100 = new byte [100];
             }
-            public void DataShow( )
+            public StringBuilder DataShow( )
             {
                 StringBuilder sb = new StringBuilder(ByteDataSendArray100.Length * 3);
                 for(int i = 0; i < this.ByteDataSendArray100.Length; i++)
@@ -257,6 +257,7 @@ namespace Tcp
                     sb.Append(Convert.ToString(ByteDataSendArray100 [i] , 16).PadLeft(2 , '0').PadRight(3 , ' '));
                 }
                 Console.WriteLine(sb.ToString().ToUpper());
+                return sb;
             }
 
         }
@@ -295,7 +296,7 @@ namespace Tcp
         #endregion
 
         #region Action parameter
-        private byte [ ] SLE1 = Encoding.ASCII.GetBytes("SLE1");
+       /* private byte [ ] SLE1 = Encoding.ASCII.GetBytes("SLE1");
         private byte [ ] SLE0 = Encoding.ASCII.GetBytes("SLE0");
         private byte [ ] SENR = Encoding.ASCII.GetBytes("SENR");
         private byte [ ] BLN1 = Encoding.ASCII.GetBytes("BLN1");
@@ -322,7 +323,34 @@ namespace Tcp
         private byte [ ] B100 = Encoding.ASCII.GetBytes("B100");
         private byte [ ] B101 = Encoding.ASCII.GetBytes("B101");
         private byte [ ] B110 = Encoding.ASCII.GetBytes("B110");
-        private byte [ ] B111 = Encoding.ASCII.GetBytes("B111");
+        private byte [ ] B111 = Encoding.ASCII.GetBytes("B111");*/
+
+        private  string [] ActionStr = new string[]{  "SLE1",
+                                                      "SLE0",
+                                                      "SENR",
+                                                      "BLN1",
+                                                      "BLN0",
+                                                      "BUZ0",
+                                                      "BUZ1",
+                                                      "BYP0",
+                                                      "BYP1",   
+                                                      "T000",
+                                                      "T001",
+                                                      "T010",
+                                                      "T011",
+                                                      "T100",
+                                                      "T101",
+                                                      "T110",
+                                                      "T111",
+                                                      "B000",
+                                                      "B001",
+                                                      "B010",
+                                                      "B011",
+                                                      "B100",
+                                                      "B101",
+                                                      "B110",
+                                                      "B111"
+        };
 
         #endregion
 
@@ -341,7 +369,7 @@ namespace Tcp
             Tcp.TcpOption.AllResult Result;
             byte [ ] data = new byte [200];
             data [0] = 64;
-            this.Action = 1;
+            this.Action = 0;
 
             for(int i = 1; i < 200; i++)
             {
@@ -444,75 +472,82 @@ namespace Tcp
         /// <param name="dataSend">data for send to board</param>
         private void AddActionAndCheckSum(byte [ ] dataSend)
         {
-            if(Action == 0)
-            {
-                SLE0.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , SLE0.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + SLE0.Length);
-            }
-            else if(Action == 1)
-            {
-                SLE1.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , SLE1.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + SLE1.Length);
+             byte[] action = Encoding.ASCII.GetBytes(ActionStr[Action]);
+             action.CopyTo(buffer , 0);
+             dataSend.CopyTo(buffer , action.Length);
+             Crc = ToModbus(buffer);
+             TCPResult.CRC = Crc;
+             buffer.CopyTo(buffer3 , 0);
+             Crc.CopyTo(buffer3 , dataSend.Length + action.Length);
+            /* if(Action == 0)
+             {
+                 SLE0.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , SLE0.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + SLE0.Length);
+             }
+             else if(Action == 1)
+             {
+                 SLE1.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , SLE1.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + SLE1.Length);
 
-            }
-            else if(Action == 2)
-            {
-                BLN0.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , BLN0.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + BLN0.Length);
+             }
+             else if(Action == 2)
+             {
+                 BLN0.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , BLN0.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + BLN0.Length);
 
-            }
-            else if(Action == 3)
-            {
-                BLN1.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , BLN1.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + BLN1.Length);
+             }
+             else if(Action == 3)
+             {
+                 BLN1.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , BLN1.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + BLN1.Length);
 
-            }
-            else if(Action == 4)
-            {
-                BUZ0.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , BUZ0.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + BUZ0.Length);
+             }
+             else if(Action == 4)
+             {
+                 BUZ0.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , BUZ0.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + BUZ0.Length);
 
-            }
-            else if(Action == 5)
-            {
-                BUZ1.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , BUZ1.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + BUZ1.Length);
+             }
+             else if(Action == 5)
+             {
+                 BUZ1.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , BUZ1.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + BUZ1.Length);
 
-            }
-            else if(Action == 6)
-            {
-                SENR.CopyTo(buffer , 0);
-                dataSend.CopyTo(buffer , SENR.Length);
-                Crc = ToModbus(buffer);
-                TCPResult.CRC = Crc;
-                buffer.CopyTo(buffer3 , 0);
-                Crc.CopyTo(buffer3 , dataSend.Length + SENR.Length);
+             }
+             else if(Action == 6)
+             {
+                 SENR.CopyTo(buffer , 0);
+                 dataSend.CopyTo(buffer , SENR.Length);
+                 Crc = ToModbus(buffer);
+                 TCPResult.CRC = Crc;
+                 buffer.CopyTo(buffer3 , 0);
+                 Crc.CopyTo(buffer3 , dataSend.Length + SENR.Length);
 
-            }
+             }*/
         }
 
         /// <summary>
