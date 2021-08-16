@@ -32,7 +32,7 @@ namespace Tcp
             t1.Action = int.Parse(textBox2.Text);
             byte [ ] bytes = t1.StringToByteArray(textBox1.Text.ToString());
             Result = t1.TCPSend(bytes);
-            Console.WriteLine("Error = " + Result.ErrorMessage + "  //send = " + Result.SendErrorMessage + " //data Send = " + Result.DataSend +"  //Data Recive Error Message = "+ Result.ReviceErrorMessage + " //Data Recive Result = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
+            Console.WriteLine("Error bool="+ Result.Result + "//Error = " + Result.ErrorMessage + "  //send = " + Result.SendErrorMessage + " //data Send = " + Result.DataSend +"  //Data Recive Error Message = "+ Result.ReviceErrorMessage + " //Data Recive Result = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
             Thread.Sleep(100);
         }
 
@@ -187,7 +187,7 @@ namespace Tcp
             t1.Action = int.Parse(textBox2.Text);
             //byte [ ] bytes = t1.StringToByteArray(textBox1.Text.ToString());
             Result = t1.TCPSend(t1.ByteLedQty100.ByteDataSendArray100);
-            Console.WriteLine("Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
+            Console.WriteLine("//Error Bool="+Result.Result +" //Error = " + Result.ErrorMessage + "  send = " + Result.Result + " data Send = " + Result.DataSend + " DataResult = " + Result.DataReceive + "  Data byte Receive= " + BitConverter.ToString(Result.ByteDataReceive));
             Thread.Sleep(100);
         }
     }
@@ -479,75 +479,7 @@ namespace Tcp
              TCPResult.CRC = Crc;
              buffer.CopyTo(buffer3 , 0);
              Crc.CopyTo(buffer3 , dataSend.Length + action.Length);
-            /* if(Action == 0)
-             {
-                 SLE0.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , SLE0.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + SLE0.Length);
-             }
-             else if(Action == 1)
-             {
-                 SLE1.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , SLE1.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + SLE1.Length);
-
-             }
-             else if(Action == 2)
-             {
-                 BLN0.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , BLN0.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + BLN0.Length);
-
-             }
-             else if(Action == 3)
-             {
-                 BLN1.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , BLN1.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + BLN1.Length);
-
-             }
-             else if(Action == 4)
-             {
-                 BUZ0.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , BUZ0.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + BUZ0.Length);
-
-             }
-             else if(Action == 5)
-             {
-                 BUZ1.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , BUZ1.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + BUZ1.Length);
-
-             }
-             else if(Action == 6)
-             {
-                 SENR.CopyTo(buffer , 0);
-                 dataSend.CopyTo(buffer , SENR.Length);
-                 Crc = ToModbus(buffer);
-                 TCPResult.CRC = Crc;
-                 buffer.CopyTo(buffer3 , 0);
-                 Crc.CopyTo(buffer3 , dataSend.Length + SENR.Length);
-
-             }*/
+           
         }
 
         /// <summary>
