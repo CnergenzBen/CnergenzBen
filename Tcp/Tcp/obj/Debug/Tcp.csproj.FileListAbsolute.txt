@@ -27,3 +27,79 @@ C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.Generate
 C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
 C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.exe
 C:\Users\choo_\Desktop\tcp Sip\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\ben\Desktop\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\ben.LAPTOP-ATL0D250\Downloads\ben rack\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.laoding.resources
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.laoding.resources
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\ben\Desktop\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.laoding.resources
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\ben\Desktop\CnergenzSmartRact10-1\1\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.laoding.resources
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.laoding.resources
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\User\Desktop\store code\25-10-2021Tcp\Cnergenz_Smart_Rack 1-11-2021\Tcp\Tcp\obj\Debug\Tcp.pdb
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe.config
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.exe
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\bin\Debug\Tcp.pdb
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csprojAssemblyReference.cache
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Form1.resources
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.laoding.resources
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.Properties.Resources.resources
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.GenerateResource.cache
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.exe
+C:\Users\User\Desktop\git 11121 smack rack cnergenz\CnergenzBen\Tcp\Tcp\obj\Debug\Tcp.pdb

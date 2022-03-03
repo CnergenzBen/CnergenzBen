@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent( )
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,6 +43,18 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tt = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.on1 = new System.Windows.Forms.TextBox();
+            this.on2 = new System.Windows.Forms.TextBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.button9 = new System.Windows.Forms.Button();
+            this.timetext = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -56,7 +69,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(178, 117);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 67);
+            this.button1.Size = new System.Drawing.Size(111, 68);
             this.button1.TabIndex = 1;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,7 +79,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(16, 172);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 67);
+            this.button2.Size = new System.Drawing.Size(111, 68);
             this.button2.TabIndex = 2;
             this.button2.Text = "Stop";
             this.button2.UseVisualStyleBackColor = true;
@@ -74,9 +87,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(166, 204);
+            this.button3.Location = new System.Drawing.Point(166, 205);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 67);
+            this.button3.Size = new System.Drawing.Size(111, 68);
             this.button3.TabIndex = 3;
             this.button3.Text = "connect";
             this.button3.UseVisualStyleBackColor = true;
@@ -103,7 +116,7 @@
             // 
             this.TEST.Location = new System.Drawing.Point(16, 98);
             this.TEST.Name = "TEST";
-            this.TEST.Size = new System.Drawing.Size(124, 67);
+            this.TEST.Size = new System.Drawing.Size(124, 68);
             this.TEST.TabIndex = 10;
             this.TEST.Text = "LEDCheck";
             this.TEST.UseVisualStyleBackColor = true;
@@ -111,7 +124,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(644, 493);
+            this.button8.Location = new System.Drawing.Point(1161, 105);
             this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(112, 38);
@@ -122,7 +135,7 @@
             // 
             // LedLocation
             // 
-            this.LedLocation.Location = new System.Drawing.Point(826, 430);
+            this.LedLocation.Location = new System.Drawing.Point(1342, 42);
             this.LedLocation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LedLocation.Name = "LedLocation";
             this.LedLocation.Size = new System.Drawing.Size(148, 26);
@@ -140,7 +153,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(633, 435);
+            this.label2.Location = new System.Drawing.Point(1150, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 20);
             this.label2.TabIndex = 14;
@@ -148,7 +161,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(826, 493);
+            this.button4.Location = new System.Drawing.Point(1342, 105);
             this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 38);
@@ -159,7 +172,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(644, 542);
+            this.button5.Location = new System.Drawing.Point(1161, 152);
             this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(112, 38);
@@ -170,7 +183,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(826, 542);
+            this.button6.Location = new System.Drawing.Point(1342, 152);
             this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 38);
@@ -179,11 +192,113 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(326, 117);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(504, 722);
+            this.dataGridView1.TabIndex = 18;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tt
+            // 
+            this.tt.Location = new System.Drawing.Point(88, 540);
+            this.tt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tt.Name = "tt";
+            this.tt.Size = new System.Drawing.Size(112, 35);
+            this.tt.TabIndex = 19;
+            this.tt.Text = "tt";
+            this.tt.UseVisualStyleBackColor = true;
+            this.tt.Click += new System.EventHandler(this.tt_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(1074, 382);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(112, 35);
+            this.button7.TabIndex = 20;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
+            // on1
+            // 
+            this.on1.Location = new System.Drawing.Point(1074, 309);
+            this.on1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.on1.Name = "on1";
+            this.on1.Size = new System.Drawing.Size(148, 26);
+            this.on1.TabIndex = 21;
+            this.on1.Text = "0";
+            // 
+            // on2
+            // 
+            this.on2.Location = new System.Drawing.Point(1305, 309);
+            this.on2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.on2.Name = "on2";
+            this.on2.Size = new System.Drawing.Size(148, 26);
+            this.on2.TabIndex = 22;
+            this.on2.Text = "0";
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(1058, 540);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(112, 35);
+            this.button9.TabIndex = 23;
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // timetext
+            // 
+            this.timetext.Location = new System.Drawing.Point(88, 35);
+            this.timetext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.timetext.Name = "timetext";
+            this.timetext.Size = new System.Drawing.Size(148, 26);
+            this.timetext.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1054, 643);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 20);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "label3";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(1217, 405);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(509, 414);
+            this.richTextBox1.TabIndex = 26;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 672);
+            this.ClientSize = new System.Drawing.Size(1738, 872);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.timetext);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.on2);
+            this.Controls.Add(this.on1);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.tt);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -200,6 +315,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +337,17 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button tt;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox on1;
+        private System.Windows.Forms.TextBox on2;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox timetext;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
